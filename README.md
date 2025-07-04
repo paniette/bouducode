@@ -1,2 +1,2 @@
 # bouducode
-Gestionnaire de mémos - bouts de code
+Bouts de code
