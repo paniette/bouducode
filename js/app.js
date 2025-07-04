@@ -8,22 +8,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour afficher les éléments
     function displayItems(items) {
-        const content = document.getElementById('content');
+        const content = document.getElementById('app');
         content.innerHTML = '';
         
         items.forEach(item => {
+            console.log("displayitem",item)
             const div = document.createElement('div');
             div.className = 'item';
             div.innerHTML = `
                 <h3>${item.name}</h3>
                 <p>${item.category}</p>
+                <p>${item.boutdecode}</p>
             `;
             content.appendChild(div);
         });
     }
 
     // Initialisation de l'affichage
-    displayItems(items);
+    //displayItems(items);
 
     // Gestion de la recherche
     const searchInput = document.getElementById('searchInput');
@@ -71,8 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
            
             data.forEach(bout => {
-                console.log(bout.id);
+                console.log(bout.boutdecode);
             });
+            displayItems(data);
     
         } catch (error) {
             console.error('Erreur lors de la récupération des bouts :', error);
