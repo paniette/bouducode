@@ -1,5 +1,5 @@
 [
-    { "id": 1, "name": "Javascript", "age":18, "category": "Tableaux", "boutdecode":"exercices : retirer doublons\nlet arr = [1,1,2,3,3,4,5,6,6];\nlet sortedArray = [];\narr.map((item) => {if(!sortedArray.includes(item)){ sortedArray.push(item);}});\nconsole.log(sortedArray);"},
+    { "id": 1, "name": "Javascript daisy", "age":18, "category": "Tableaux", "boutdecode":"exercices : retirer doublons\nlet arr = [1,1,2,3,3,4,5,6,6];\nlet sortedArray = [];\narr.map((item) => {if(!sortedArray.includes(item)){ sortedArray.push(item);}});\nconsole.log(sortedArray);"},
     { "id": 2, "name": "Css", "age":18, "category": "Animation" , "boutdecode":""},
     { "id": 3, "name": "Git", "age":32, "category": "Deploy" , "boutdecode":""}
 ]
