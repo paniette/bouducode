@@ -45,6 +45,7 @@ header {
 
 .sidebar nav ul li:hover {
     background-color: #e0e0e0;
+    border-bottom: #333 1px;
 }
 
 .main-content {
