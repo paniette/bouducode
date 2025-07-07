@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // displayItems(filteredItems);
         });
     });
-    const domain = "http://www.paniette.fr/projets/github/data/";
+    const domain = "https://www.paniette.fr/projets/github/data/";
     const jsonData = "bouts.json";//../data/bouts.json
 
     async function fetchBouts() {
