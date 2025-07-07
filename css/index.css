@@ -8,6 +8,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.item{
+    p {
+        white-space: pre-line;
+      }
+}
 .container {
     display: flex;
     min-height: 100vh;
