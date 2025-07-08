@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 3, name: 'Item 3', category: 'Category A' , boutdecode:''}
     ];
 
+
+
+
+
     // Fonction pour afficher les éléments
     function displayItems(items) {
         const content = document.getElementById('app');
@@ -24,9 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+
+
+
+
+
+
     // Initialisation de l'affichage
     //displayItems(items);
-
+    
     // Gestion de la recherche
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', function(e) {
@@ -38,25 +48,69 @@ document.addEventListener('DOMContentLoaded', function() {
         displayItems(filteredItems);
     });
 
+
+    
+// Fonction pour afficher les éléments
+function displayCategories(categoriesList) {
+    $("#navbar").empty();   
+    const $ul = $("<ul>");
+    $("#navbar").append($ul);
+    
+    categoriesList.map((item) => {
+            const $li = $("<li>");
+            $li.text(item);
+            $li.on('click', function(e) { handleClick(e)});
+            $ul.append($li);
+        }
+    )
+    const $span = $("<span>");
+    $span.addClass("underline");
+    $ul.append($span);
+    console.log("CREATION CATEGORIES !!! :",$span.offset())
+}
+
+    function filterByCategory(){
+        //displayItems
+    }
+
+
+
     // Gestion des événements de la sidebar
-    const menuItems = document.querySelectorAll('.sidebar nav ul li');
-    menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Retirer la classe active de tous les éléments
-            menuItems.forEach(i => i.classList.remove('active'));
-            // Ajouter la classe active à l'élément cliqué
-            this.classList.add('active');
-            
-            // Ici, vous pouvez ajouter la logique de filtrage par catégorie
-            const category = this.textContent;
-            // Exemple de filtrage :
-            // const filteredItems = items.filter(item => item.category === category);
-            // displayItems(filteredItems);
-        });
+    
+    const $menuItems = $('#sidebar ul li').on('click', function(e) {
+        // Retirer la classe active de tous les éléments
+        //$menuItems.forEach(i => i.removeClass('active'));
+        // Ajouter la classe active à l'élément cliqué
+       
+       handleClick(e);
+                
     });
+
+    function handleClick(e) {
+        console.log("action sur this : ",e.currentTarget)
+        $(e.target).siblings().removeClass("active");
+        $(e.target).addClass('active');
+
+        moveUnderline($(e.target).offset().top);
+
+    }
+
+    function moveUnderline(totop){
+        console.log("ton top ",totop)
+      const $underline = $('.underline');
+      console.log($underline)
+      //const $underline = $('.underline');
+      $underline.css('top',(totop-26)+'px');
+    }
+
+
+
+
+
+    
     const domain = "https://www.paniette.fr/projets/github/data/";
     const jsonData = "bouts.json";//../data/bouts.json
-
+    
     async function fetchBouts() {
         try {
             // Faire la requête fetch
@@ -69,16 +123,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Convertir la réponse en JSON
             const data = await response.json();
-            
+            const categoriesList = [];
             // Afficher les données dans la console
             console.log('Données bouts récupérées:', data);
             
            
             data.forEach(bout => {
+                if(!categoriesList.includes(bout.category)){categoriesList.push(bout.category)}
                 console.log(bout.boutdecode);
             });
             displayItems(data);
-    
+            displayCategories(categoriesList);
+            
         } catch (error) {
             console.error('Erreur lors de la récupération des bouts :', error);
         }

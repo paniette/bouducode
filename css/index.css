@@ -46,11 +46,35 @@ header {
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
+    
+
+}
+
+
+.sidebar .underline {
+top:0;
+    position: absolute;
+    
+    left: 0;
+    height: 4px;
+    width: 250px;
+    background: #1a0202;
+    border-radius: 2px;
+    transition: left 0.3s, width 0.3s;
+    z-index: 0;
+    transition: top 1s cubic-bezier(0.48, 0.36, 0.12, 1.02);
+  }
+
+.active{
+    background-color: #e0e0e0;
+    
+    transition: background-color 1s;
+    
 }
 
 .sidebar nav ul li:hover {
     background-color: #e0e0e0;
-    border-bottom: #333 1px;
+    
 }
 
 .main-content {
@@ -96,6 +120,9 @@ header {
     .sidebar {
         width: 200px;
     }
+    .sidebar .underline {
+        width: 200px;
+    }
     
     .main-content {
         margin-left: 200px;
@@ -113,7 +140,10 @@ header {
         position: static;
         margin-top: 60px;
     }
-    
+    .sidebar .underline {
+        width: 100%;
+    }
+        
     .main-content {
         margin-left: 0;
         margin-top: 0;
