@@ -51,15 +51,14 @@ header {
 }
 
 
-.sidebar .underline {
-top:0;
+.sidebar  .underline {
+    top: 0;
     position: absolute;
-    
     left: 0;
     height: 4px;
-    width: 250px;
+    width: 87%;
+    margin: 0 0 0 1rem;
     background: #1a0202;
-    border-radius: 2px;
     transition: left 0.3s, width 0.3s;
     z-index: 0;
     transition: top 1s cubic-bezier(0.48, 0.36, 0.12, 1.02);

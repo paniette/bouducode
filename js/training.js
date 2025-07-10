@@ -4,9 +4,6 @@ const persons = [
     { id: 3, name: 'Item 3', age:32, category: 'Category A' , boutdecode:''}
 ];
 const personSet = new Set(persons);
-
 const personMap = new Map(personSet)
-console.log("personset",personSet);
-
-console.log("personMap",personMap)
-
+//console.log("personset",personSet);
+//console.log("personMap",personMap)
